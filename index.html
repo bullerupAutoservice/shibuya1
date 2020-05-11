@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <head>
+        <title>ShibuyaCrowd</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no">
+        <script type="text/javascript" src="./dest/javascripts/lib/threejs/three.r84.min.js"></script>
+        <link rel="stylesheet" href="./dest/css/style.css" type="text/css">
+
+        <meta property="og:title" content="ShibuyaCrowd" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://shibuyacrowd.mattatz.org" />
+        <meta property="og:image" content="http://shibuyacrowd.mattatz.org/dest/images/ogp.png" />
+        <meta property="og:site_name"  content="ShibuyaCrowd" />
+    </head>
+    <body>
+
+        <div id="webvj--indicator">
+            <img src="./dest/images/loading.gif" />
+        </div>
+        <div v-on:mouseOver="" class="virtual-keyboard">
+            <div v-show="!isMobile">
+                <p class="description">←↑→↓ controls camera</p>
+            </div>
+            <div class="keyboard-row" v-for="(row, index) in keys">
+                <span v-text="headers[index]"></span>
+                <ul>
+                    <li v-for="key in row">
+                        <button v-on:mouseOver="mouseOver(key)" v-on:mouseOut="mouseOut(key)" v-text="(isMobile || (key.state == KeyCodeState.Pressed || key.state == KeyCodeState.Selected)) ? key.work : key.key" v-bind:class="{ pressed: (key.state == KeyCodeState.Pressed || key.state == KeyCodeState.Selected) }" v-on:mouseDown="mouseDown(key)" v-on:mouseUp="mouseUp(key)"></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="./dest/javascripts/main.js"></script>
+    </body>
+</html>
