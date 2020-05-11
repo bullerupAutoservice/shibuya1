@@ -1624,7 +1624,7 @@
 
 	            this.container.rotation.set(-Math.PI * 0.5, 0, 0);
 
-	            Promise.all([this.load("../dest/osm/shibuya.json")]).then(function (data) {
+	            Promise.all([this.load("./dest/osm/shibuya.json")]).then(function (data) {
 	                var osm = new _OSM2.default(data[0]);
 
 	                var group = new _HighwayGroup2.default(osm, boundary, converter);
